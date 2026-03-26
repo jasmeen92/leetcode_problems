@@ -47,11 +47,11 @@ Constraints:
 0 <= val <= 100
 '''
 
-class Solution:
-    def removeElement(self, nums: list[int], val: int) -> int:
-        k = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                nums[k] = nums[i]
-                k += 1
-        return k
+class Solution: ## two pointers, one for iterating through the array, and one for writing the next non-val element
+    def removeElement(self, nums: list[int], val: int) -> int: # iterate through the array with i, and write non-val elements to index k
+        k = 0 # index for writing the next non-val element
+        for i in range(len(nums)): # iterate through the array with i
+            if nums[i] != val: # if the current element is not val, write it to index k and increment k
+                nums[k] = nums[i] # write the non-val element to index k
+                k += 1 # increment k to point to the next index for writing
+        return k # return k, which is the number of non-val elements in the array, and the first k elements of nums contain the non-val elements
